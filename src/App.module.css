@@ -1,0 +1,105 @@
+.app {
+  width: 100%;
+  min-height: 100vh;
+
+  font-family: "MedievalSharp", cursive;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("./assets/bg-img.jpg");
+}
+
+h1 {
+  font-size: 70px;
+  text-shadow: 3px 3px 3px rgb(255, 215, 0);
+}
+
+
+.settings {
+  width: 600px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+
+  font-size: 34px;
+  color: white;
+}
+
+.settingsDetail {
+  display: flex;
+  flex-direction: column;
+}
+
+.password {
+  border: 2px solid black;
+}
+
+.passwordLength {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.submit {
+  flex-direction: row;
+}
+
+.submitButton{
+  width: 106px;
+  min-height: 5vh;
+  margin-left: 12px ;
+  
+  background-color: white;
+  border: 3px solid black;
+  box-shadow: 3px 3px 3px rgb(255, 215, 0);
+	font-size: 16px;
+  
+	border-radius: 20px;
+}
+
+input[type="number"]{
+  width: 50px;
+  min-height: 5vh;
+  margin-top: 10px;
+
+	background-color: white;
+  border: 3px solid black;
+  box-shadow: 3px 3px 3px rgb(255, 215, 0);
+	font-size: 16px;
+  
+	border-radius: 4px;
+} 
+ 
+input[type="checkbox"] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.settingsDetail input[type="checkbox"] +label {
+  display: inline-flex;
+  align-items: center;
+}
+.settingsDetail input[type="checkbox"] +label::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 3px solid black;
+  box-shadow: 3px 3px 3px rgb(255, 215, 0);
+  border-radius: 4px;
+  margin-right: 8px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+
+
+
+
