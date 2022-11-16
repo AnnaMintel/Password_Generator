@@ -7,7 +7,7 @@ import { Settings } from './Settings/Settings';
 function App() {
 
   const initialState = {
-    passLength: 1,
+    passLength: 0,
     upperCase: false,
     lowerCase: false,
     num: false,
@@ -20,7 +20,7 @@ function App() {
   const uppercase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
   const lowercase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
   const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  const symbols = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')'];
+  const symbols = ['!', '@', '#', '%', '?', ';', '_', '(', ')', '{', '}', '[', ']'];
 
   const generate = () => {
     const array = []
@@ -30,9 +30,9 @@ function App() {
     if (settings.num) { array.push(numbers) }
     if (settings.symb) { array.push(symbols) }
 
-let resultArray = [];
-    for (let i = 0; i <= settings.passLength; i++) {
-        let randomArrayIndex = Math.floor(Math.random() * (array.length - 1));
+    let resultArray = [];
+    for (let i = 1; i <= settings.passLength; i++) {
+        let randomArrayIndex = Math.round(Math.random() * (array.length - 1));
         resultArray.push(array[randomArrayIndex][Math.round(Math.random() * array[randomArrayIndex].length)]
         )
     }
@@ -43,7 +43,9 @@ let resultArray = [];
     <div className={s.app}>
       <h1>Generate a secure password</h1>
       <Password randomPassword={randomPassword} />
-      <Settings settings={settings} setSettings={setSettings} generate={generate} />
+      <Settings settings={settings} 
+      setSettings={setSettings} 
+      generate={generate}/>
     </div >
   );
 }

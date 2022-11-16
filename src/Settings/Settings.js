@@ -2,7 +2,7 @@ import React from 'react';
 import s from './Settings.module.css';
 
 
-export const Settings = ({ settings, setSettings, generate}) => {
+export const Settings = ({ settings, setSettings, generate }) => {
 
     const onChangePassLength = (e) => {
         setSettings({ ...settings, passLength: e.currentTarget.value });
@@ -19,22 +19,30 @@ export const Settings = ({ settings, setSettings, generate}) => {
     const onChangeSymb = (e) => {
         setSettings({ ...settings, symb: e.currentTarget.checked });
     }
-    
+
+    const disabledButton = 
+    (!settings.upperCase && !settings.lowerCase && !settings.num && !settings.symb) || settings.passLength < 1
+    || (settings.passLength > 1 && (!settings.upperCase && !settings.lowerCase && !settings.num && !settings.symb))
+
 
     return (
         <div className={s.settings}>
             <div className={s.passwordLength}>
                 Password Length <div className={s.submit}>
                     <input type="number"
-                        min="1"
+                        min="0"
                         max="20"
                         value={settings.passLength}
                         onChange={onChangePassLength}
                     />
-                    <input type='submit'
+                    <button
                         value='GENERATE'
                         className={s.submitButton}
-                        onClick={generate} /></div>
+                        onClick={generate}
+                        disabled={disabledButton}
+                    >GENERATE
+                    </button>
+                </div>
             </div>
             <div className={s.settingsDetail}>
                 <div><input
